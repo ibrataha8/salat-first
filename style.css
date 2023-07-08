@@ -1,6 +1,66 @@
-/* .container{
-    width: 33%;
-    margin:0 auto ;
-    height: 100vh;
-    background-color: green;
-} */
+.card{
+    background-color: #fff;
+    width: 10%;
+    height: 20%;
+}
+.list-ville{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 10px; */
+}
+#select-ville{
+    background: none;
+    color: white;
+    border-radius: 50px;
+    padding: 5px;
+    width: 100px;
+}
+.name-city{
+    margin-right: 100px;
+    font-family: 'Marhey', cursive;
+    font-size: 30px;
+}
+.date-jour{
+    font-family: 'Gulzar', serif;
+    font-size: 14px;
+}
+.salate{
+    background-color: #905cef;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 4px;
+    text-align: center;
+}
+
+.horaire{
+    display: flex;
+    font-size: 20px;
+    font-family: 'Marhey', serif;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    color: black;
+}
+.all-salate{
+    height: 400px; 
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around ;
+}
+.all-page{
+    margin-top: 0px;
+}
+.info-header{
+    margin-top: 40px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:linear-gradient(45deg,#240165,rgb(45, 45, 45));
+    color: white;
+    /* height: 100vh; */
+}
+h1, h2,h3, h4, h5, h6{
+    margin: 0px;
+}
