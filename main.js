@@ -1,40 +1,58 @@
-let param = {
+function parameter(city){
+    return param = {
     country:"ma",
-    city:"Berkane"
-};
+        city:city
+    };
+}
 let listVille = document.querySelector("#select-ville")
-const listCities = ["الدار البيضاء","سطات","بركان" ,"شفشاون","مراكش"]
-
+let villeName = document.querySelector("#name-ville")
+const listCities = 
+    [
+        { "الدار البيضاء": "Casablanca"},
+        { "سطات": "Settat"},
+        { "بركان": "Berkane"},
+        { "مراكش": "Marrakech"}
+    ]
 function replirListVille(listCities) {
-    listCities.forEach(ville => {
-        listVille.innerHTML +=`<option>${ville}</option>`
-    });
+    for (let i = 0; i < listCities.length; i++) {
+        listVille.innerHTML +=`<option value="${Object.values(listCities[i])}">${Object.keys(listCities[i])}</option>`
+    }
 }
 replirListVille(listCities)
-axios.get('http://api.aladhan.com/v1/timingsByCity', {
-    params:param
-  })
-  .then(function (response) {
+apiData("Casablanca")
+listVille.addEventListener("change", ()=>{
+    villeName.innerHTML = (listVille.options[listVille.selectedIndex].textContent);
+    apiData(listVille.options[listVille.selectedIndex].textContent)
 
-    //Remplir date jout 
-    const dateApi = response.data.data.date.hijri
-    jour = dateApi.weekday.ar
-    indiceJour = dateApi.day
-    mois = dateApi.month.ar
-    fullDate = jour + " " + indiceJour + " " + mois
-    date.innerHTML = fullDate
+})
 
-    //Remplir aw9at salat
+function apiData(city){
 
-    let info = response.data.data.timings
-    remplirSalate("time-fajr",info.Fajr)
-    remplirSalate("time-doher",info.Dhuhr)
-    remplirSalate("time-asser",info.Asr)
-    remplirSalate("time-moghrab",info.Maghrib)
-    remplirSalate("time-ichaa",info.Isha)
+    axios.get('http://api.aladhan.com/v1/timingsByCity', {
+        params:parameter(city)
+    })
+    .then(function (response) {
+        
+        //Remplir date jout 
+        const dateApi = response.data.data.date.hijri
+        jour = dateApi.weekday.ar
+        indiceJour = dateApi.day
+        mois = dateApi.month.ar
+        fullDate = jour + " " + indiceJour + " " + mois
+        date.innerHTML = fullDate
     
+        //Remplir aw9at salat
     
-  })
+        let info = response.data.data.timings
+        remplirSalate("time-fajr",info.Fajr)
+        remplirSalate("time-doher",info.Dhuhr)
+        remplirSalate("time-asser",info.Asr)
+        remplirSalate("time-moghrab",info.Maghrib)
+        remplirSalate("time-ichaa",info.Isha)
+        
+        
+      })
+}
 function remplirSalate(id,salate) {
     document.getElementById(id).innerHTML = salate
 }
