@@ -7,6 +7,13 @@ axios.get('http://api.aladhan.com/v1/timingsByCity', {
   })
   .then(function (response) {
     let info = response.data.data.timings
-    // document.querySelector("#time-fajr").innerHTML = info.Fajr
+    remplirSalate("time-fajr",info.Fajr)
+    remplirSalate("time-doher",info.Dhuhr)
+    remplirSalate("time-asser",info.Asr)
+    remplirSalate("time-moghrab",info.Maghrib)
+    remplirSalate("time-ichaa",info.Isha)
     
   })
+function remplirSalate(id,salate) {
+    document.getElementById(id).innerHTML = salate
+}
