@@ -2,16 +2,25 @@ let param = {
     country:"ma",
     city:"Berkane"
 };
+let listVille = document.querySelector("#select-ville")
+const listCities = ["الدار البيضاء","سطات","بركان" ,"شفشاون","مراكش"]
+
+function replirListVille(listCities) {
+    listCities.forEach(ville => {
+        listVille.innerHTML +=`<option>${ville}</option>`
+    });
+}
+replirListVille(listCities)
 axios.get('http://api.aladhan.com/v1/timingsByCity', {
     params:param
   })
   .then(function (response) {
 
     //Remplir date jout 
-
-    jour = response.data.data.date.hijri.weekday.ar
-    indiceJour = response.data.data.date.hijri.day
-    mois = response.data.data.date.hijri.month.ar
+    const dateApi = response.data.data.date.hijri
+    jour = dateApi.weekday.ar
+    indiceJour = dateApi.day
+    mois = dateApi.month.ar
     fullDate = jour + " " + indiceJour + " " + mois
     date.innerHTML = fullDate
 
