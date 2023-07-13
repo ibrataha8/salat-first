@@ -28,7 +28,7 @@ listVille.addEventListener("change", ()=>{
 
 function apiData(city){
 
-    axios.get('http://api.aladhan.com/v1/timingsByCity', {
+    axios.get('https://api.aladhan.com/v1/timingsByCity', {
         params:parameter(city)
     })
     .then(function (response) {
