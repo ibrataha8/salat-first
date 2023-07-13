@@ -8,7 +8,7 @@ Prayer times in Morocco
 - [x] JS
 - [x] API
 
-> Note: SweetAlert,GoogleFont CDN used in project so that Internet is required.
+> Note: GoogleFont CDN used in project so that Internet is required.
 
 
 
