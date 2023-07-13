@@ -12,23 +12,34 @@
 }
 #select-ville{
     background: none;
-    color: white;
+    color: rgb(76, 76, 76);
     border-radius: 50px;
     padding: 5px;
     width: 100px;
-    background-color: #240165;
+    background-color: #39cdfa;
 }
 .name-city{
     margin-right: 100px;
     font-family: 'Marhey', cursive;
     font-size: 30px;
 }
+#name-ville{
+    color: rgba(255, 195, 195, 0.577);
+}
+#name-ville:hover{
+    color: white ;
+}
+#date{
+    font-size: 15px;
+    color: rgba(246, 255, 122, 0.873);
+}
 .date-jour{
     font-family: 'Gulzar', serif;
     font-size: 15px;
 }
 .salate{
-    background-color: #905cef;
+    background-color: #5ebff88f;
+    color: rgba(0, 76, 255, 0.697);
     font-family: 'Courier New', Courier, monospace;
     padding: 4px;
     text-align: center;
@@ -59,7 +70,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background:linear-gradient(45deg,#240165,rgb(45, 45, 45));
+    background:linear-gradient(45deg,#013865,rgb(45, 45, 45));
     color: white;
     /* height: 100vh; */
 }
